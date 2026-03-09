@@ -1,16 +1,74 @@
-# React + Vite
+# Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple interactive quiz application built with React. No backend yet
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Multi-question quiz with multiple choice answers
+- Navigate freely between questions with Previous / Next buttons
+- Answers are saved as you move between questions
+- Next button is disabled until an answer is selected
+- Results screen displays your final score upon completion
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── App.jsx               # Root component
+├── index.css             # Global styles
+└── components/
+    ├── quiz.jsx          # Quiz logic and question rendering
+    └── results.jsx       # Results screen
+```
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/quiz-app.git
+   cd quiz-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and visit `http://localhost:5173`
+
+## How It Works
+
+1. The quiz presents one question at a time from a question bank defined in `quiz.jsx`
+2. Select an answer to enable the Next button
+3. Use Previous to go back and change an answer at any time
+4. On the last question, the Next button becomes **Finish Quiz**
+5. After finishing, the Results screen shows your score
+
+## Adding Questions
+
+To add more questions, update the `questionBank` array in `quiz.jsx`:
+
+```js
+{
+    question: "Your question here?",
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answer: "Option A"
+}
+```
+
+## Built With
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
